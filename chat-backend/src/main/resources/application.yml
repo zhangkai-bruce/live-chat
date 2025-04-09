@@ -1,0 +1,37 @@
+server:
+    # 端口号
+    port: 8180
+    servlet:
+        context-path: /api
+
+# 数据源配置
+spring:
+    # 数据库配置
+    datasource:
+        url: jdbc:mysql://localhost:3306/chat_db?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+    # JSON日期格式化
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+    # 允许循环依赖
+    main:
+        allow-circular-references: true
+
+    # 静态资源配置
+    mvc:
+        static-path-pattern: /static/**
+
+    # 上传文件大小限制
+    servlet:
+        multipart:
+            max-file-size: 10MB
+            max-request-size: 20MB
+
+# WebSocket允许的源
+websocket:
+    allowed-origins: http://localhost:5173,http://127.0.0.1:5173
